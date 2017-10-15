@@ -8,7 +8,9 @@ import java.net.UnknownHostException;
 import java.util.Map;
 
 import client.controller.Controller;
+import client.shape.Shape;
 import client.util.AES;
+import client.util.JsonMessageUtil;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -120,7 +122,6 @@ public class TCPClient{
 					System.out.println(heartbeatData);
 					sendData(heartbeatData);
 					lastSendTime = System.currentTimeMillis();
-
 				} else {
 					try {
 						Thread.sleep(checkDelay);
@@ -167,21 +168,27 @@ public class TCPClient{
 	//handle message received from the server.
 	private void messageHandler(String message) {
 		String msg = AES.Decrypt(message);
-		java.lang.reflect.Type mapType = new TypeToken<Map<String, String>>(){}.getType();
+		java.lang.reflect.Type mapType = new TypeToken<Map<String, Object>>(){}.getType();
 		Gson gson = new Gson();
-		Map<String,String> data = gson.fromJson(msg, mapType);
+		Map<String,Object> data = gson.fromJson(msg, mapType);
 		System.out.println("received msg from server: "+socket.getInetAddress()+" port:"+socket.getPort() +" msg: " + data);
-		switch (data.get("cmd")) {
+		switch (data.get("cmd").toString()) {
             case "heartbeat":
                 break;
             case "check":
-                String content = data.get("content");
+                String content = data.get("content").toString();
                 if(content.equals("approve")){
                     this.controller.showWhiteBoardWindow();
                 }else{
                     stop();
                     this.controller.rejectByServer();
                 }
+                break;
+            case "addShape":
+                String classType = data.get("classType").toString();
+                String objectData = data.get("object").toString();
+                Shape shape = JsonMessageUtil.GenerateShapeFromMessage(classType, objectData);
+                controller.addShape(shape);
             default:
                 break;
 		}

@@ -3,6 +3,7 @@ package client.controller;
 import client.UI.LoginWindow;
 import client.UI.WhiteBoardClientWindow;
 import client.net.TCPClient;
+import client.shape.*;
 
 
 public class Controller {
@@ -45,5 +46,13 @@ public class Controller {
 
     public void rejectByServer() {
         // do something
+    }
+
+    public void sendToServerData(String msg) {
+        this.getTcpClient().sendData(msg);
+    }
+
+    public void addShape(Shape shape) {
+        this.whiteBoardWindow.getDrawarea().addShape(shape);
     }
 }

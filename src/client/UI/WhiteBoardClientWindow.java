@@ -28,6 +28,15 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
     // The icon objects of the button panel
     private JLabel startbar;
     private DrawArea drawarea;
+
+    public DrawArea getDrawarea() {
+        return drawarea;
+    }
+
+    public void setDrawarea(DrawArea drawarea) {
+        this.drawarea = drawarea;
+    }
+
     private FileHandler fileclass;
 
 	private JPanel userinfo, users;
@@ -47,7 +56,7 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
     String[] fontName;
     // Define the name of the icons in the button panel
     private String names[] = {"pen","line", "rect", "frect", "oval", "foval", "circle", "fcircle",
-            "roundrect", "froundrect", "rubber", "color", "stroke", "word", "undo"};
+            "roundrect", "froundrect", "rubber", "color", "stroke", "word"};
     private Icon icons[];
 
     // Show instruction when the mouse moves above the button
@@ -56,7 +65,7 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
             "draw a hollow oval", "draw a solid oval", "draw a hollow circle",
             "draw a solid circle", "draw a rounded corner rectangle",
             "draw a solid rounded corner rectangle", "eraser", "color",
-            "brush size", "text input", "undo process"};
+            "brush size", "text input"};
     JButton button[]; // define button group in toolbar
     private JCheckBox bold, italic;
 
@@ -353,7 +362,7 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
         } else if (e.getSource() == exit){
             // exit
             System.exit(0);
-        } else if (e.getSource() == button[11] || e.getSource() == colorchoice){
+        } else if (e.getSource() == button[11]){
             // color plate
             drawarea.chooseColor();// Choose your color
         } else if (e.getSource() == button[12] || e.getSource() == strokeitem){
@@ -366,10 +375,7 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
                     "hints", JOptionPane.INFORMATION_MESSAGE);
             drawarea.setCurrentShapeType(DrawArea.ShapeType.WORD);
             drawarea.repaint();
-        } else if (e.getSource() == button[14]){
-            drawarea.undo();
-        }
-        else if (e.getActionCommand().equals("clear")) {
+        } else if (e.getActionCommand().equals("clear")) {
 			sendArea.setText("");
 		} else if (e.getActionCommand().equals("send")) {
 			recvArea.append(usermessage("Client", "120.0.0.1") + "\n");
