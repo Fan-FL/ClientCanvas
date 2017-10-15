@@ -1,5 +1,6 @@
 package client.UI;
 
+import client.controller.Controller;
 import client.file.FileHandler;
 
 import java.awt.*;
@@ -12,9 +13,10 @@ import java.util.Date;
 import javax.swing.*;
 
 // Draw the main frame of the white board
-public class WhiteBoardClient extends JFrame implements ActionListener {
+public class WhiteBoardClientWindow extends JFrame implements ActionListener {
 
     private static final long serialVersionUID = -2551980583852173918L;
+    Controller controller;
     private JToolBar buttonpanel;
     // define the button panel
     private JMenuBar bar;
@@ -64,9 +66,10 @@ public class WhiteBoardClient extends JFrame implements ActionListener {
     Toolkit tool = getToolkit();
     Dimension dim = tool.getScreenSize();// Get the size of current screen
 
-    public WhiteBoardClient(String string) {
+    public WhiteBoardClientWindow(String string, Controller controller) {
         // TODO constructor of main interface
         super(string);
+        this.controller = controller;
         // initial menu
         file = new JMenu("file");
         color = new JMenu("color");
@@ -222,7 +225,16 @@ public class WhiteBoardClient extends JFrame implements ActionListener {
 
         setBounds(0, 0, dim.width, dim.height - 40);
         validate();
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter(){
+            public void windowClosing(WindowEvent e) {
+                if(controller != null){
+                    controller.getTcpClient().stop();
+                }
+                System.exit(0);
+            }
+
+        });
         setVisible(true);
     }
     

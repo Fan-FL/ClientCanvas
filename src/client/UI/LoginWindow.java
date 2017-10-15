@@ -3,22 +3,22 @@ package client.UI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.*;
 
-import client.ClientCommunication;
+import client.controller.Controller;
 
 
-
-
-public class Login implements ActionListener{
-    public JFrame loginFrame = new JFrame("Mini-Canvas  Client Login");
-    public JTextField userName;
+public class LoginWindow implements ActionListener{
+    public JFrame loginFrame = new JFrame("Mini-Canvas  Client LoginWindow");
     public JTextField ipAddress;
-    public JTextField portNumber;
+    public JTextField portNumberTextField;
+    private Controller controller;
 
     
-    public void login_window(){
+    public void showLoginWindow(){
         int width = Toolkit.getDefaultToolkit().getScreenSize().width;
         int height = Toolkit.getDefaultToolkit().getScreenSize().height;
         int windowWidth = 512;
@@ -27,12 +27,11 @@ public class Login implements ActionListener{
         JPanel icon = new JPanel();
         JPanel text = new JPanel();
         JLabel background = new JLabel();
-        JLabel ip = new JLabel("   Server   IP  address:");
-        JLabel port = new JLabel("   Server port number:");
+        JLabel ip = new JLabel("   Server   IP:");
+        JLabel port = new JLabel("   Server port:");
         JLabel username = new JLabel("   Your   user   name:");
         ipAddress = new JTextField(15);
-        portNumber = new JTextField(15);
-        userName = new JTextField(15);
+        portNumberTextField = new JTextField(15);
         JButton connect = new JButton(" Connect ");
         JButton exit = new JButton("     Exit    ");
         
@@ -52,12 +51,11 @@ public class Login implements ActionListener{
         
         JPanel inputPort = new JPanel();
         inputPort.add(port);
-        inputPort.add(portNumber);
+        inputPort.add(portNumberTextField);
         
         JPanel UserName = new JPanel();
         UserName.add(username);
-        UserName.add(userName);
-        
+
         JPanel buttons = new JPanel();
         JPanel bbuttons = new JPanel();
         buttons.add(bbuttons, BorderLayout.CENTER);
@@ -77,25 +75,45 @@ public class Login implements ActionListener{
         loginFrame.add(text, BorderLayout.CENTER);
         loginFrame.add(bbuttons, BorderLayout.SOUTH);
         loginFrame.setResizable(false);
-        loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        loginFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        loginFrame.addWindowListener(new WindowAdapter(){
+            public void windowClosing(WindowEvent e) {
+                if(controller != null){
+                    controller.getTcpClient().stop();
+                }
+                System.exit(0);
+            }
+
+        });
                 
     }   
     
     public void actionPerformed(ActionEvent e) {  
-        if(e.getActionCommand().equals("connect")){  
-        	@SuppressWarnings("unused")
-        	ClientCommunication clientCommunication = new ClientCommunication();
-        	String ServerIp = ipAddress.getText();
-        	String ServerPort = portNumber.getText();
-        	String myUserName = userName.getText();
-        	clientCommunication.connect(ServerIp, ServerPort);
-        	//The whiteBoard needs to be put somewhere else.
-            WhiteBoardClient whiteBoard = new WhiteBoardClient("Mini-Canvas Client");
-        	loginFrame.dispose();
-        	
-        }  
+        if(e.getActionCommand().equals("connect")){
+            // test
+            ipAddress.setText("localhost");
+            portNumberTextField.setText("4444");
+
+            this.controller = new Controller();
+            this.controller.setLoginWindow(this);
+        	String serverIp = ipAddress.getText();
+            int serverPort;
+            try{
+                serverPort = Integer.parseInt(portNumberTextField.getText());
+            } catch (NumberFormatException exception){
+                return;
+            }
+
+            controller.connectServer(serverIp, serverPort);
+        }
         if(e.getActionCommand().equals("exit")){  
             System.exit(0);  
         }  
+    }
+
+    public void finish() {
+        loginFrame.dispose();
+        ipAddress = null;
+        portNumberTextField = null;
     }
 }

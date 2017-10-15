@@ -1,20 +1,18 @@
 package client.file;
 
 import client.UI.DrawArea;
-import client.UI.WhiteBoardClient;
+import client.UI.WhiteBoardClientWindow;
 import client.shape.Shape;
 
-import java.awt.Color;
 import java.io.*;
 
 import javax.swing.*;
-import javax.swing.filechooser.*;
 
 public class FileHandler {
-    private WhiteBoardClient whiteboard;
+    private WhiteBoardClientWindow whiteboard;
     DrawArea drawarea = null;
 
-    public FileHandler(WhiteBoardClient wb, DrawArea da) {
+    public FileHandler(WhiteBoardClientWindow wb, DrawArea da) {
         whiteboard = wb;
         drawarea = da;
     }

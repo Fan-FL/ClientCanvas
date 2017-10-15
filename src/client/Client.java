@@ -1,6 +1,6 @@
 package client;
 
-import client.UI.Login;
+import client.UI.LoginWindow;
 
 import java.awt.EventQueue;
 
@@ -12,8 +12,8 @@ public class Client {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Login window = new Login();
-					window.login_window();
+					LoginWindow window = new LoginWindow();
+					window.showLoginWindow();
 					//window.loginFrame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
