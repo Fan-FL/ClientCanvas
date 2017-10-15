@@ -72,6 +72,7 @@ public class DrawArea extends JPanel {
         this.currentShape = null;
         this.lastShape = null;
         reentrantReadWriteLock.writeLock().unlock();
+        repaint();
     }
 
     @Override

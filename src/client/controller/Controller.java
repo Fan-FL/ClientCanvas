@@ -55,4 +55,8 @@ public class Controller {
     public void addShape(Shape shape) {
         this.whiteBoardWindow.getDrawarea().addShape(shape);
     }
+
+    public void clearCanvas() {
+        this.whiteBoardWindow.getDrawarea().clearCanvas();
+    }
 }

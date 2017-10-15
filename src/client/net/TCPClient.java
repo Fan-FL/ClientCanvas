@@ -191,10 +191,13 @@ public class TCPClient{
                 String objectData = data.get("object").toString();
                 Shape shape = JsonMessageUtil.GenerateShapeFromMessage(classType, objectData);
                 controller.addShape(shape);
+                break;
+            case "clearCanvas":
+                controller.clearCanvas();
+                break;
             default:
                 break;
 		}
-		System.out.println("received msg from server: "+socket.getInetAddress()+" port: "+socket.getPort() +" msg: " + msg);
 	}
 
 }
