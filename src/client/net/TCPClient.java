@@ -1,6 +1,3 @@
-/*
- * Fan Li 844359
- */
 package client.net;
 
 import java.io.DataInputStream;
@@ -15,7 +12,6 @@ import client.util.AES;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import javafx.application.Platform;
 
 public class TCPClient{
 	private Controller controller;
