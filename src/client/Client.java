@@ -14,6 +14,7 @@ public class Client {
 				try {
 					LoginWindow window = new LoginWindow();
 					window.showLoginWindow();
+					//Testing commit...
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
