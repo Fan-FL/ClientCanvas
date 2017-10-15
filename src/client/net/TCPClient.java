@@ -179,6 +179,8 @@ public class TCPClient{
                 String content = data.get("content").toString();
                 if(content.equals("approve")){
                     this.controller.showWhiteBoardWindow();
+                    String approveACKData = "{\"cmd\":\"checkACK\"}";
+                    sendData(approveACKData);
                 }else{
                     stop();
                     this.controller.rejectByServer();
