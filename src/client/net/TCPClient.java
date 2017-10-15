@@ -18,6 +18,8 @@ import com.google.gson.reflect.TypeToken;
 public class TCPClient{
 	private Controller controller;
 
+	private String username = "";
+
 	private DataInputStream input = null;
 	private DataOutputStream output = null;
 
@@ -26,6 +28,8 @@ public class TCPClient{
 
 	private Socket socket = null;
 	private volatile boolean running = false;
+
+	private boolean approvedByServer = false;
 
 	public String getServerIP() {
 		return serverIP;
@@ -103,6 +107,7 @@ public class TCPClient{
 				socket = null;
 				input = null;
 				output = null;
+				controller.disconnect();
 			}
 		}
         System.out.println("connection closed.");
@@ -178,23 +183,43 @@ public class TCPClient{
             case "check":
                 String content = data.get("content").toString();
                 if(content.equals("approve")){
-                    this.controller.showWhiteBoardWindow();
+                    this.controller.showWhiteBoardWindow(this.username);
                     String approveACKData = "{\"cmd\":\"checkACK\"}";
                     sendData(approveACKData);
+                    this.approvedByServer = true;
                 }else{
                     stop();
-                    this.controller.rejectByServer();
                 }
                 break;
+            case "username":
+                if(this.approvedByServer){
+                    this.username = data.get("content").toString();
+                    break;
+                }
+            case "kick":
+                if(this.approvedByServer){
+                    this.stop();
+                    break;
+                }
+            case "addUser":
+                if(this.approvedByServer){
+                    String username = data.get("content").toString();
+                    this.controller.addUser(username);
+                    break;
+                }
             case "addShape":
-                String classType = data.get("classType").toString();
-                String objectData = data.get("object").toString();
-                Shape shape = JsonMessageUtil.GenerateShapeFromMessage(classType, objectData);
-                controller.addShape(shape);
-                break;
+                if(this.approvedByServer){
+                    String classType = data.get("classType").toString();
+                    String objectData = data.get("object").toString();
+                    Shape shape = JsonMessageUtil.GenerateShapeFromMessage(classType, objectData);
+                    controller.addShape(shape);
+                    break;
+                }
             case "clearCanvas":
-                controller.clearCanvas();
-                break;
+                if(this.approvedByServer){
+                    controller.clearCanvas();
+                    break;
+                }
             default:
                 break;
 		}

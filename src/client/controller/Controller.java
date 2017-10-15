@@ -37,15 +37,11 @@ public class Controller {
         //waiting approval window
     }
 
-    public void showWhiteBoardWindow() {
+    public void showWhiteBoardWindow(String username) {
         // close waiting window
         this.whiteBoardWindow = new WhiteBoardClientWindow("Mini-Canvas Client", this);
         this.loginWindow.finish();
-    }
-
-
-    public void rejectByServer() {
-        // do something
+        this.whiteBoardWindow.getUserTable().setMyUsername(username);
     }
 
     public void sendToServerData(String msg) {
@@ -58,5 +54,14 @@ public class Controller {
 
     public void clearCanvas() {
         this.whiteBoardWindow.getDrawarea().clearCanvas();
+    }
+
+    public void disconnect() {
+        //add pop up window here
+        System.exit(0);
+    }
+
+    public void addUser(String username) {
+        // todo
     }
 }

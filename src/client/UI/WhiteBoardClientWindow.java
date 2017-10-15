@@ -16,9 +16,18 @@ import javax.swing.*;
 public class WhiteBoardClientWindow extends JFrame implements ActionListener {
 
     private static final long serialVersionUID = -2551980583852173918L;
-    Controller controller;
+    private Controller controller;
     private JToolBar buttonpanel;
     // define the button panel
+
+    public Controller getController() {
+        return controller;
+    }
+
+    public void setController(Controller controller) {
+        this.controller = controller;
+    }
+
     private JMenuBar bar;
     private JMenu file, color, stroke;
     // four main menu of the button panel
@@ -39,11 +48,6 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
 
     private FileHandler fileclass;
 
-	private JPanel userinfo, users;
-	private JLabel userlist;
-	private JPanel userName;
-//	private JButton 
-	
 	private JPanel chat;
 
 	private JTextArea recvArea, sendArea;
@@ -70,8 +74,17 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
     private JCheckBox bold, italic;
 
     private JComboBox stytles;
-	private Box userinfoBox;
-    
+
+    private UserTable userTable;
+
+    public UserTable getUserTable() {
+        return userTable;
+    }
+
+    public void setUserTable(UserTable userTable) {
+        this.userTable = userTable;
+    }
+
     Toolkit tool = getToolkit();
     Dimension dim = tool.getScreenSize();// Get the size of current screen
 
@@ -188,29 +201,7 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
         // Initialization for the start bar
         startbar = new JLabel("White Board");
 
-        
-		JButton add = new JButton("ADD");
-		add.addActionListener(this);
-		add.setActionCommand("add");
-        
-		JPanel top = new JPanel();
-		top.setLayout(new BorderLayout());
-		JLabel users = new JLabel("  User Information");
-		users.setOpaque(true);
-		users.setBackground(Color.cyan);
-		users.setBorder(BorderFactory.createLineBorder(Color.black));
-		setUserinfoBox(Box.createVerticalBox());
-		top.add(users, BorderLayout.NORTH);
-		top.add(add,BorderLayout.CENTER);
-		getUserinfoBox().add(top);
-		getUserinfoBox().add(userInfo("Admin", "120.0.0.7"));
-		
-		userinfo = new JPanel();
-		userinfo.setLayout(new BorderLayout(0,5));
-		userinfo.setBackground(Color.white);
-		userinfo.setBorder(BorderFactory.createLineBorder(Color.black));
-		userinfo.setPreferredSize(new Dimension(200, 10));
-		userinfo.add(getUserinfoBox(),BorderLayout.NORTH);
+        userTable = new UserTable(this);
 
 		chat = new JPanel();
 		chat.setLayout(new BorderLayout(0, 10));
@@ -228,7 +219,7 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
         con.add(buttonpanel, BorderLayout.NORTH);
         con.add(drawarea, BorderLayout.CENTER);
         con.add(startbar, BorderLayout.SOUTH);
-        con.add(userinfo, BorderLayout.WEST);
+        con.add(userTable, BorderLayout.WEST);
         con.add(chat, BorderLayout.EAST);
 
 
@@ -246,24 +237,6 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
         });
         setVisible(true);
     }
-    
-	public JPanel userInfo(String userName, String ipAddress){
-		JPanel userinfo = new JPanel();
-		userinfo.setLayout(new BorderLayout());
-		JLabel username = new JLabel(" " + userName);
-		username.setBackground(Color.white);
-		JButton operation = new JButton("DELETE");
-		operation.addActionListener(this);
-		operation.setActionCommand("delete");
-		username.setToolTipText(ipAddress);
-		userinfo.add(username, BorderLayout.WEST);
-		userinfo.add(operation, BorderLayout.EAST);
-		userinfo.setBorder(BorderFactory.createLineBorder(Color.blue));
-		//userinfo.setPreferredSize(new Dimension(200,10));
-		return userinfo;
-		
-	}
-
     
 
 	public JPanel recvWindow() {
@@ -381,21 +354,9 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
 			recvArea.append(usermessage("Client", "120.0.0.1") + "\n");
 			sendArea.setText("");
 		}
-		else if(e.getActionCommand().equals("add")){
-			getUserinfoBox().add(userInfo("Admin", "120.0.0.7"));
-			getUserinfoBox().repaint();
-		}
 
     }
     
-	public Box getUserinfoBox() {
-		return userinfoBox;
-	}
-
-	public void setUserinfoBox(Box userinfoBox) {
-		this.userinfoBox = userinfoBox;
-	}
-
     // About the font of the character
     public class CheckBoxHandler implements ItemListener {
 

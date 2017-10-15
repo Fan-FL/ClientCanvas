@@ -102,7 +102,7 @@ public class DrawArea extends JPanel {
         currentShape = null;
         repaint();
         String addShapeMsg = JsonMessageUtil.assembleAddShapeObjectData(shape);
-        this.whiteboard.controller.sendToServerData(addShapeMsg);
+        this.whiteboard.getController().sendToServerData(addShapeMsg);
     }
 
     public void addShape(Shape shape){
