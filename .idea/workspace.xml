@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bd664ae-23d8-41d2-8c7f-fa1cea0999ec" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/UI/UserTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/UI/DrawArea.java" afterPath="$PROJECT_DIR$/src/client/UI/DrawArea.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/UI/WhiteBoardClientWindow.java" afterPath="$PROJECT_DIR$/src/client/UI/WhiteBoardClientWindow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/controller/Controller.java" afterPath="$PROJECT_DIR$/src/client/controller/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/net/TCPClient.java" afterPath="$PROJECT_DIR$/src/client/net/TCPClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/util/AES.java" afterPath="$PROJECT_DIR$/src/client/util/AES.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -115,8 +109,8 @@
       <file leaf-file-name="WhiteBoardClientWindow.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/client/UI/WhiteBoardClientWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4893">
-              <caret line="302" column="59" lean-forward="true" selection-start-line="302" selection-start-column="59" selection-end-line="302" selection-end-column="59" />
+            <state relative-caret-position="361">
+              <caret line="90" column="54" lean-forward="false" selection-start-line="90" selection-start-column="54" selection-end-line="90" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#606#607#0" expanded="true" />
@@ -154,16 +148,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Circle.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/shape/Circle.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
@@ -184,8 +168,8 @@
       <find>draw</find>
       <find>user</find>
       <find>showWhiteBoardWindow</find>
-      <find>userName</find>
       <find>username</find>
+      <find>userName</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -218,11 +202,11 @@
         <option value="$PROJECT_DIR$/ClientCanvas.userlibraries" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/client/UI/UserTable.java" />
-        <option value="$PROJECT_DIR$/src/client/UI/WhiteBoardClientWindow.java" />
         <option value="$PROJECT_DIR$/src/client/UI/DrawArea.java" />
         <option value="$PROJECT_DIR$/src/client/net/TCPClient.java" />
         <option value="$PROJECT_DIR$/src/client/controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/client/util/AES.java" />
+        <option value="$PROJECT_DIR$/src/client/UI/WhiteBoardClientWindow.java" />
       </list>
     </option>
   </component>
@@ -848,12 +832,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1508024962040</updated>
-      <workItem from="1508024969395" duration="27498000" />
+      <workItem from="1508024969395" duration="28188000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27498000" />
+    <option name="totallyTimeSpent" value="28188000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1932" height="1053" extended-state="0" />
@@ -1104,10 +1088,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_121/src.zip!/java/awt/Toolkit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="112" column="22" lean-forward="false" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/UI/WhiteBoardClientWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4893">
-          <caret line="302" column="59" lean-forward="true" selection-start-line="302" selection-start-column="59" selection-end-line="302" selection-end-column="59" />
+        <state relative-caret-position="361">
+          <caret line="90" column="54" lean-forward="false" selection-start-line="90" selection-start-column="54" selection-end-line="90" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#606#607#0" expanded="true" />
