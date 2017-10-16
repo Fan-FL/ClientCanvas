@@ -108,6 +108,8 @@ public class Controller {
                 default:
                     break;
             }
+        }else{
+            JOptionPane.showMessageDialog(null, "Disconnected or cannot connect to the server", "alert", JOptionPane.WARNING_MESSAGE);
         }
         System.exit(0);
     }

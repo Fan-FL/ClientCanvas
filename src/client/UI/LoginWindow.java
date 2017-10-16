@@ -16,6 +16,7 @@ public class LoginWindow implements ActionListener{
     public JTextField ipAddress;
     public JTextField portNumberTextField;
     private Controller controller;
+    JButton connect;
 
     
     public void showLoginWindow(){
@@ -31,7 +32,7 @@ public class LoginWindow implements ActionListener{
         JLabel port = new JLabel("   Server port:");
         ipAddress = new JTextField(15);
         portNumberTextField = new JTextField(15);
-        JButton connect = new JButton(" Connect ");
+        connect = new JButton(" Connect ");
         JButton exit = new JButton("     Exit    ");
         
 		connect.addActionListener(this);
@@ -101,6 +102,9 @@ public class LoginWindow implements ActionListener{
             }
 
             controller.connectServer(serverIp, serverPort);
+            ipAddress.setEnabled(false);
+            portNumberTextField.setEnabled(false);
+            connect.setEnabled(false);
         }
         if(e.getActionCommand().equals("exit")){  
             System.exit(0);  

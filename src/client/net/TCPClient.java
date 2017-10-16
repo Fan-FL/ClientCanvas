@@ -223,16 +223,22 @@ public class TCPClient{
                 }
 				break;
 			case "kick":
-				sendData("{\"cmd\":\"disconnect\"}");
-				stop("kick");
+				if(this.approvedByServer) {
+					sendData("{\"cmd\":\"disconnect\"}");
+					stop("kick");
+				}
 				break;
 			case "newChat":
-				String text = data.get("content").toString();
-				controller.addChatMessage(text);
+				if(this.approvedByServer) {
+					String text = data.get("content").toString();
+					controller.addChatMessage(text);
+				}
 				break;
 			case "serverClosed":
-				stop("serverClosed");
-				controller.serverClosed();
+				if(this.approvedByServer) {
+					stop("serverClosed");
+					controller.serverClosed();
+				}
 				break;
             default:
                 break;
