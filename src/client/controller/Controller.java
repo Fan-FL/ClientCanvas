@@ -45,6 +45,7 @@ public class Controller {
 
     public void connectSuccessfully() {
         //waiting approval window
+        JOptionPane.showMessageDialog(null, "You are rejected by the server", "warning", JOptionPane.WARNING_MESSAGE);
     }
 
     public void showWhiteBoardWindow(String username) {

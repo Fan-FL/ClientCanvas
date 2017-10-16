@@ -102,7 +102,7 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
         bar.add(color);
         bar.add(stroke);
         bar.setOpaque(true);
-        bar.setBackground(Color.cyan);
+        bar.setBackground(new Color(245,245,245));
 
         setJMenuBar(bar);
 
@@ -197,6 +197,7 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
         buttonpanel.add(bold);
         buttonpanel.add(italic);
         buttonpanel.add(stytles);
+        buttonpanel.setBackground(new Color(245,245,245));
 
         // Initialization for the start bar
         startbar = new JLabel("White Board");
@@ -245,7 +246,7 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
 
 		chatRoom = new JLabel("  The Chat Room");
 		chatRoom.setOpaque(true);
-		chatRoom.setBackground(Color.cyan);
+		chatRoom.setBackground(new Color(245,245,245));
 		chatRoomPanel = new JPanel();
 		chatRoomPanel.setLayout(new GridLayout());
 		chatRoomPanel.add(chatRoom);
