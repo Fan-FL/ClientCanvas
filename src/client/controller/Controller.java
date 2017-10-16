@@ -56,12 +56,16 @@ public class Controller {
         this.whiteBoardWindow.getDrawarea().clearCanvas();
     }
 
-    public void disconnect() {
+    public void quit() {
         //add pop up window here
         System.exit(0);
     }
 
     public void addUser(String username) {
-        // todo
+        this.whiteBoardWindow.getUserTable().addUser(username);
+    }
+
+    public void deleteUser(String username){
+        this.whiteBoardWindow.getUserTable().deleteUser(username);
     }
 }

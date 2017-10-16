@@ -3,6 +3,7 @@ package client.UI;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.util.*;
 
 public class UserTable extends JPanel{
 
@@ -34,5 +35,24 @@ public class UserTable extends JPanel{
         add(scrollPane,BorderLayout.CENTER);
         table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         scrollPane.setViewportView(table);
+    }
+
+    public synchronized void addUser(String username){
+        String []rowValues = {username};
+        tableModel.addRow(rowValues);
+    }
+
+    public synchronized void deleteUser(String username){
+        int rowCount = tableModel.getRowCount();
+        if(rowCount != -1){
+            for (int i=0; i<rowCount; i++){
+                if(table.getValueAt(i,0).equals(username)){
+                    tableModel.removeRow(i);
+                    return;
+                }
+            }
+        }else{
+            return;
+        }
     }
 }

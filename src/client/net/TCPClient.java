@@ -100,6 +100,7 @@ public class TCPClient{
 			running = false;
 		if (socket != null) {
 			try {
+				sendData("{\"cmd\":\"disconnect\"");
 				socket.close();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -107,7 +108,7 @@ public class TCPClient{
 				socket = null;
 				input = null;
 				output = null;
-				controller.disconnect();
+				controller.quit();
 			}
 		}
         System.out.println("connection closed.");
@@ -117,7 +118,7 @@ public class TCPClient{
 		String heartbeatData = "{\"cmd\":\"heartbeat\",\"content\":\"alive\"}";
 		private long checkDelay = 100;
 		// send heartbeat message every 10 seconds
-		long hearbeatDelay = 10000;
+		long hearbeatDelay = 5000;
 		private long lastSendTime = System.currentTimeMillis();
 
 		@Override
@@ -184,7 +185,7 @@ public class TCPClient{
                 String content = data.get("content").toString();
                 if(content.equals("approve")){
                     this.controller.showWhiteBoardWindow(this.username);
-                    String approveACKData = "{\"cmd\":\"checkACK\"}";
+                    String approveACKData = "{\"cmd\":\"approveACK\"}";
                     sendData(approveACKData);
                     this.approvedByServer = true;
                 }else{
@@ -196,17 +197,18 @@ public class TCPClient{
                     this.username = data.get("content").toString();
                     break;
                 }
-            case "kick":
-                if(this.approvedByServer){
-                    this.stop();
-                    break;
-                }
             case "addUser":
                 if(this.approvedByServer){
                     String username = data.get("content").toString();
                     this.controller.addUser(username);
                     break;
                 }
+			case "deleteUser":
+				if(this.approvedByServer){
+					String username = data.get("content").toString();
+					this.controller.deleteUser(username);
+					break;
+				}
             case "addShape":
                 if(this.approvedByServer){
                     String classType = data.get("classType").toString();
@@ -220,6 +222,8 @@ public class TCPClient{
                     controller.clearCanvas();
                     break;
                 }
+			case "kick":
+				stop();
             default:
                 break;
 		}
