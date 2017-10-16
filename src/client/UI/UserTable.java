@@ -2,6 +2,7 @@ package client.UI;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+
 import java.awt.*;
 import java.util.*;
 
@@ -12,6 +13,9 @@ public class UserTable extends JPanel{
     private WhiteBoardClientWindow whiteboard = null;
 
     private String myUsername = "";
+    
+	Toolkit tool = getToolkit();
+	Dimension dim = tool.getScreenSize();// Get the size of current screen
 
     public String getMyUsername() {
         return myUsername;
@@ -34,6 +38,8 @@ public class UserTable extends JPanel{
         JScrollPane scrollPane = new JScrollPane(table);
         add(scrollPane,BorderLayout.CENTER);
         table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        table.setPreferredScrollableViewportSize(new Dimension(250,dim.height - 270));
+//        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         scrollPane.setViewportView(table);
     }
 
