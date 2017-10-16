@@ -22,14 +22,13 @@ public class LoginWindow implements ActionListener{
         int width = Toolkit.getDefaultToolkit().getScreenSize().width;
         int height = Toolkit.getDefaultToolkit().getScreenSize().height;
         int windowWidth = 512;
-        int windowHeight = 425;
+        int windowHeight = 390;
         
         JPanel icon = new JPanel();
         JPanel text = new JPanel();
         JLabel background = new JLabel();
-        JLabel ip = new JLabel("   Server   IP:");
+        JLabel ip = new JLabel("   Server     IP:");
         JLabel port = new JLabel("   Server port:");
-        JLabel username = new JLabel("   Your   user   name:");
         ipAddress = new JTextField(15);
         portNumberTextField = new JTextField(15);
         JButton connect = new JButton(" Connect ");
@@ -53,8 +52,6 @@ public class LoginWindow implements ActionListener{
         inputPort.add(port);
         inputPort.add(portNumberTextField);
         
-        JPanel UserName = new JPanel();
-        UserName.add(username);
 
         JPanel buttons = new JPanel();
         JPanel bbuttons = new JPanel();
@@ -65,7 +62,6 @@ public class LoginWindow implements ActionListener{
         text.setLayout( new BorderLayout() );
         text.add(inputIp,BorderLayout.NORTH);
         text.add(inputPort,BorderLayout.CENTER);
-        text.add(UserName,BorderLayout.SOUTH);
         
         loginFrame.setBounds((width - windowWidth) / 2,
                 (height - windowHeight) / 2, windowWidth, windowHeight);
