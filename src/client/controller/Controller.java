@@ -43,12 +43,6 @@ public class Controller {
         this.tcpClient.connect();
     }
 
-    public void connectSuccessfully() {
-        //waiting approval window
-    	//JOptionPane.showMessageDialog(null, "waiting for server approval", "notice", JOptionPane.ERROR_MESSAGE);
-        //JOptionPane.showMessageDialog(null, "waiting for server approval", "notice", JOptionPane.WARNING_MESSAGE);
-    }
-
     public void showWhiteBoardWindow(String username) {
         // close waiting window
         this.whiteBoardWindow = new WhiteBoardClientWindow("Mini-Canvas Client", this);
@@ -66,11 +60,6 @@ public class Controller {
 
     public void clearCanvas() {
         this.whiteBoardWindow.getDrawarea().clearCanvas();
-    }
-
-    public void quit() {
-        //add pop up window here
-        System.exit(0);
     }
 
     public void addUser(String username) {
