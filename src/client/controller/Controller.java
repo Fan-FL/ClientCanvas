@@ -103,7 +103,7 @@ public class Controller {
                     JOptionPane.showMessageDialog(null, "You are kicked out by the server", "warning", JOptionPane.WARNING_MESSAGE);
                     break;
                 case "serverClosed":
-                    JOptionPane.showMessageDialog(null, "Server are closed", "alert", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Server is closed", "alert", JOptionPane.WARNING_MESSAGE);
                     break;
                 default:
                     break;
