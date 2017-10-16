@@ -228,9 +228,9 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter(){
             public void windowClosing(WindowEvent e) {
-                if(controller != null){
+                if(controller != null && controller.getTcpClient().isConnected()){
                     controller.sendToServerData("{\"cmd\":\"disconnect\"}");
-                    controller.getTcpClient().stop();
+                    controller.getTcpClient().stop(null);
                 }
                 System.exit(0);
             }
