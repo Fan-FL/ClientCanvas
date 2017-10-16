@@ -100,9 +100,8 @@ public class TCPClient{
 			running = false;
 		if (socket != null) {
 			try {
-				sendData("{\"cmd\":\"disconnect\"");
 				socket.close();
-			} catch (IOException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}finally{
 				socket = null;
@@ -195,35 +194,46 @@ public class TCPClient{
             case "username":
                 if(this.approvedByServer){
                     this.username = data.get("content").toString();
-                    break;
+                    this.controller.getWhiteBoardWindow().getUserTable().setMyUsername(this.username);
                 }
+				break;
             case "addUser":
                 if(this.approvedByServer){
                     String username = data.get("content").toString();
                     this.controller.addUser(username);
-                    break;
                 }
+				break;
 			case "deleteUser":
 				if(this.approvedByServer){
 					String username = data.get("content").toString();
 					this.controller.deleteUser(username);
-					break;
 				}
+				break;
             case "addShape":
                 if(this.approvedByServer){
                     String classType = data.get("classType").toString();
                     String objectData = data.get("object").toString();
                     Shape shape = JsonMessageUtil.GenerateShapeFromMessage(classType, objectData);
                     controller.addShape(shape);
-                    break;
                 }
+				break;
             case "clearCanvas":
                 if(this.approvedByServer){
                     controller.clearCanvas();
-                    break;
                 }
+				break;
 			case "kick":
+				sendData("{\"cmd\":\"disconnect\"}");
 				stop();
+				break;
+			case "newChat":
+				String text = data.get("content").toString();
+				controller.addChatMessage(text);
+				break;
+			case "serverClosed":
+				stop();
+				controller.serverClosed();
+				break;
             default:
                 break;
 		}

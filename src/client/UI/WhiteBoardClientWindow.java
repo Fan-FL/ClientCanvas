@@ -229,6 +229,7 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
         addWindowListener(new WindowAdapter(){
             public void windowClosing(WindowEvent e) {
                 if(controller != null){
+                    controller.sendToServerData("{\"cmd\":\"disconnect\"}");
                     controller.getTcpClient().stop();
                 }
                 System.exit(0);
@@ -300,16 +301,18 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
 		return sendButtonAreaPanel;
 	}
 
-	public String usermessage(String username, String ip_address) {
-		String userName = username;
-		String ipAddress = ip_address;
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String time = df.format(new Date());
-		String content = sendArea.getText();
-		String userMessage = userName + ("(") + ipAddress + (")") + ("  ")
-				+ time + ("\n") + content;
-		return userMessage;
+	public void addChatMessage(String content) {
+        recvArea.append(content);
 	}
+
+    public String generateChatMessage() {
+        String userName = this.userTable.getMyUsername();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String time = df.format(new Date());
+        String message = userName + "   (" + time + ("):") + System.getProperty("line.separator")
+                + sendArea.getText() + System.getProperty("line.separator") + System.getProperty("line.separator");
+        return message;
+    }
 
 
     // The characters shown in the start bar
@@ -334,6 +337,7 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
             fileclass.saveFile();
         } else if (e.getSource() == exit){
             // exit
+            this.controller.sendToServerData("{\"cmd\":\"disconnect\"}");
             System.exit(0);
         } else if (e.getSource() == button[11]){
             // color plate
@@ -351,8 +355,8 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
         } else if (e.getActionCommand().equals("clear")) {
 			sendArea.setText("");
 		} else if (e.getActionCommand().equals("send")) {
-			recvArea.append(usermessage("Client", "120.0.0.1") + "\n");
-			sendArea.setText("");
+            this.controller.sendChatMessage(generateChatMessage());
+            sendArea.setText("");
 		}
 
     }

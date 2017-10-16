@@ -11,6 +11,14 @@ public class Controller {
     private LoginWindow loginWindow;
     private WhiteBoardClientWindow whiteBoardWindow;
 
+    public WhiteBoardClientWindow getWhiteBoardWindow() {
+        return whiteBoardWindow;
+    }
+
+    public void setWhiteBoardWindow(WhiteBoardClientWindow whiteBoardWindow) {
+        this.whiteBoardWindow = whiteBoardWindow;
+    }
+
     public void setLoginWindow(LoginWindow loginWindow) {
         this.loginWindow = loginWindow;
     }
@@ -67,5 +75,17 @@ public class Controller {
 
     public void deleteUser(String username){
         this.whiteBoardWindow.getUserTable().deleteUser(username);
+    }
+
+    public void sendChatMessage(String text) {
+        sendToServerData("{\"cmd\":\"addChat\",\"content\":\"" + text + "\"}");
+    }
+
+    public void addChatMessage(String text){
+        this.whiteBoardWindow.addChatMessage(text);
+    }
+
+    public void serverClosed() {
+        System.exit(0);
     }
 }
