@@ -75,7 +75,7 @@ public class LoginWindow implements ActionListener{
         loginFrame.addWindowListener(new WindowAdapter(){
             public void windowClosing(WindowEvent e) {
                 if(controller != null){
-                    controller.getTcpClient().stop();
+                    controller.getTcpClient().stop("kick");
                 }
                 System.exit(0);
             }

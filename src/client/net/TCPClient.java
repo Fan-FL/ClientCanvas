@@ -72,11 +72,11 @@ public class TCPClient{
 			return true;
 		}catch (UnknownHostException e){
 			System.out.println("Connection excpetion to the server:"+e.getMessage());
-			stop();
+			stop(null);
 			return false;
 		}catch (IOException e){
 			System.out.println(e.getMessage() + System.getProperty("line.separator"));
-			stop();
+			stop(null);
 			return false;
 		}
 	}
@@ -91,11 +91,11 @@ public class TCPClient{
 			output.flush();
 		} catch (IOException e) {
 			e.printStackTrace();
-			stop();
+			stop(null);
 		}
 	}
 
-	public void stop() {
+	public void stop(String type) {
 		if (running)
 			running = false;
 		if (socket != null) {
@@ -107,9 +107,9 @@ public class TCPClient{
 				socket = null;
 				input = null;
 				output = null;
-				controller.quit();
 			}
 		}
+		this.controller.close(type);
         System.out.println("connection closed.");
 	}
 
@@ -132,7 +132,7 @@ public class TCPClient{
 						Thread.sleep(checkDelay);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
-						stop();
+						stop(null);
 					}
 				}
 			}
@@ -150,7 +150,7 @@ public class TCPClient{
 		public void run() {
 			while (running) {
 				if (System.currentTimeMillis() - lastReceiveTime > hearbeatDelay) {
-					stop();
+					stop(null);
 				} else {
 					try {
 						if (input.available() > 0) {
@@ -163,7 +163,7 @@ public class TCPClient{
 
 					} catch (Exception e) {
 						e.printStackTrace();
-						stop();
+						stop(null);
 					}
 				}
 			}
@@ -188,7 +188,7 @@ public class TCPClient{
                     sendData(approveACKData);
                     this.approvedByServer = true;
                 }else{
-                    stop();
+                    stop("reject");
                 }
                 break;
             case "username":
@@ -224,14 +224,14 @@ public class TCPClient{
 				break;
 			case "kick":
 				sendData("{\"cmd\":\"disconnect\"}");
-				stop();
+				stop("kick");
 				break;
 			case "newChat":
 				String text = data.get("content").toString();
 				controller.addChatMessage(text);
 				break;
 			case "serverClosed":
-				stop();
+				stop("serverClosed");
 				controller.serverClosed();
 				break;
             default:

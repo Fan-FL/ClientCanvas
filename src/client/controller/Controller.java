@@ -5,6 +5,8 @@ import client.UI.WhiteBoardClientWindow;
 import client.net.TCPClient;
 import client.shape.*;
 
+import javax.swing.*;
+
 
 public class Controller {
     private TCPClient tcpClient;
@@ -86,6 +88,25 @@ public class Controller {
     }
 
     public void serverClosed() {
+        System.exit(0);
+    }
+
+    public void close(String type) {
+        if(type != null){
+            switch (type) {
+                case "reject":
+                    JOptionPane.showMessageDialog(null, "You are rejected by the server", "warning", JOptionPane.WARNING_MESSAGE);
+                    break;
+                case "kick":
+                    JOptionPane.showMessageDialog(null, "You are kicked out by the server", "warning", JOptionPane.WARNING_MESSAGE);
+                    break;
+                case "serverClosed":
+                    JOptionPane.showMessageDialog(null, "Server are closed", "alert", JOptionPane.WARNING_MESSAGE);
+                    break;
+                default:
+                    break;
+            }
+        }
         System.exit(0);
     }
 }
