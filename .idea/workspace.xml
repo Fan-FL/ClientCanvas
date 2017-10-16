@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bd664ae-23d8-41d2-8c7f-fa1cea0999ec" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/controller/Controller.java" afterPath="$PROJECT_DIR$/src/client/controller/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/net/TCPClient.java" afterPath="$PROJECT_DIR$/src/client/net/TCPClient.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TCPClient.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TCPClient.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/client/net/TCPClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="228" column="17" lean-forward="false" selection-start-line="228" selection-start-column="17" selection-end-line="228" selection-end-column="17" />
+            <state relative-caret-position="419">
+              <caret line="74" column="31" lean-forward="true" selection-start-line="74" selection-start-column="31" selection-end-line="74" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1009#1010#0" expanded="true" />
@@ -57,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="946">
-              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+            <state relative-caret-position="-718">
+              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
                 <element signature="e#1752#1753#0" expanded="true" />
                 <element signature="e#1822#1823#0" expanded="true" />
@@ -79,6 +78,18 @@
                 <marker date="1508158590064" expanded="false" signature="2174:2180" ph=" }" />
                 <marker date="1508158590064" expanded="false" signature="2212:2223" ph=" { " />
                 <marker date="1508158590064" expanded="false" signature="2238:2244" ph=" }" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-528">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1508159629628" expanded="true" signature="76228:76270" ph="..." />
               </folding>
             </state>
           </provider>
@@ -129,16 +140,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="183">
               <caret line="2053" column="0" lean-forward="false" selection-start-line="2053" selection-start-column="0" selection-end-line="2053" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JFrame.java" pinned="false" current-in-tab="false">
-        <entry file="jar://D:/Program Files/Java/jdk1.8.0_121/src.zip!/javax/swing/JFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="304" column="0" lean-forward="false" selection-start-line="304" selection-start-column="0" selection-end-line="304" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -212,9 +213,10 @@
         <option value="$PROJECT_DIR$/src/client/UI/UserTable.java" />
         <option value="$PROJECT_DIR$/src/client/UI/WhiteBoardClientWindow.java" />
         <option value="$PROJECT_DIR$/src/client/util/AES.java" />
-        <option value="$PROJECT_DIR$/src/client/net/TCPClient.java" />
         <option value="$PROJECT_DIR$/src/client/UI/LoginWindow.java" />
         <option value="$PROJECT_DIR$/src/client/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/src/client/net/TCPClient.java" />
       </list>
     </option>
   </component>
@@ -398,6 +400,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ClientCanvas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ClientCanvas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".idea" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -850,12 +866,12 @@
       <updated>1508024962040</updated>
       <workItem from="1508024969395" duration="28786000" />
       <workItem from="1508120911557" duration="1127000" />
-      <workItem from="1508140460514" duration="12932000" />
+      <workItem from="1508140460514" duration="13966000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42845000" />
+    <option name="totallyTimeSpent" value="43879000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1361,22 +1377,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/net/TCPClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="228" column="17" lean-forward="false" selection-start-line="228" selection-start-column="17" selection-end-line="228" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1009#1010#0" expanded="true" />
-            <element signature="e#1033#1034#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="946">
-          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        <state relative-caret-position="-718">
+          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
             <element signature="e#1752#1753#0" expanded="true" />
             <element signature="e#1822#1823#0" expanded="true" />
@@ -1394,6 +1398,28 @@
             <marker date="1508158590064" expanded="false" signature="2174:2180" ph=" }" />
             <marker date="1508158590064" expanded="false" signature="2212:2223" ph=" { " />
             <marker date="1508158590064" expanded="false" signature="2238:2244" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-528">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1508159629628" expanded="true" signature="76228:76270" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/net/TCPClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="74" column="31" lean-forward="true" selection-start-line="74" selection-start-column="31" selection-end-line="74" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1009#1010#0" expanded="true" />
+            <element signature="e#1033#1034#0" expanded="true" />
           </folding>
         </state>
       </provider>

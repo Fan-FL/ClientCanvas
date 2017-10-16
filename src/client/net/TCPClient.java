@@ -63,8 +63,6 @@ public class TCPClient{
 			running = true;
 			input = new DataInputStream(socket.getInputStream());
 			output = new DataOutputStream(socket.getOutputStream());
-			//connect successfully
-			this.controller.connectSuccessfully();
 			// start hearbeat thread
 			new Thread(new SendHeartbeat()).start();
 			// start message receiving thread
