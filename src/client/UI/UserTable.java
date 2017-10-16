@@ -1,6 +1,7 @@
 package client.UI;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import java.awt.*;
@@ -35,14 +36,20 @@ public class UserTable extends JPanel{
                 return false;
             }
         };
+//        table.setBackground(new Color(245,245,245));
+//       table
         JScrollPane scrollPane = new JScrollPane(table);
         add(scrollPane,BorderLayout.CENTER);
         table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         table.setPreferredScrollableViewportSize(new Dimension(250,dim.height - 270));
         table.setRowHeight(30);
+        
+
 //        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         scrollPane.setViewportView(table);
     }
+    
+
 
     public synchronized void addUser(String username){
         String []rowValues = {username};

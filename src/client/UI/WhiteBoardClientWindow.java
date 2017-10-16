@@ -264,7 +264,7 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
 		// recviveAreaPanel.setSize(400,(dim.height-130)*2/3 - 50);
 		recviveAreaPanel.setPreferredSize(new Dimension(400,
 				(dim.height - 130) * 2 / 3 - 50));
-		recviveAreaPanel.setBorder(BorderFactory.createLineBorder(Color.blue));
+		recviveAreaPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		return recviveAreaPanel;
 	}
 
@@ -280,7 +280,7 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
 
 		sendAreaPanel.add(sendScroll , BorderLayout.CENTER);
 		sendAreaPanel.setSize(400, (dim.height - 130) / 3 - 50);
-		sendAreaPanel.setBorder(BorderFactory.createLineBorder(Color.blue));
+		sendAreaPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		return sendAreaPanel;
 	}
 
