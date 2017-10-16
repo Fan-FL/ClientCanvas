@@ -39,6 +39,7 @@ public class UserTable extends JPanel{
         add(scrollPane,BorderLayout.CENTER);
         table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         table.setPreferredScrollableViewportSize(new Dimension(250,dim.height - 270));
+        table.setRowHeight(30);
 //        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         scrollPane.setViewportView(table);
     }
