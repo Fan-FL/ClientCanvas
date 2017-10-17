@@ -87,13 +87,7 @@ public class LoginWindow implements ActionListener{
     
     public void actionPerformed(ActionEvent e) {  
         if(e.getActionCommand().equals("connect")){
-            // test
-        	connect.setText("Connecting...");
-            ipAddress.setText("localhost");
-            portNumberTextField.setText("4444");
 
-            this.controller = new Controller();
-            this.controller.setLoginWindow(this);
         	String serverIp = ipAddress.getText();
             int serverPort;
             try{
@@ -101,13 +95,16 @@ public class LoginWindow implements ActionListener{
             } catch (NumberFormatException exception){
                 return;
             }
-
-            controller.connectServer(serverIp, serverPort);
-            ipAddress.setEnabled(false);
-            portNumberTextField.setEnabled(false);
-            connect.setEnabled(false);
-        }
-        if(e.getActionCommand().equals("exit")){  
+            if(serverPort!=0){
+                this.controller = new Controller();
+                this.controller.setLoginWindow(this);
+                connect.setText("Connecting...");
+                controller.connectServer(serverIp, serverPort);
+                ipAddress.setEnabled(false);
+                portNumberTextField.setEnabled(false);
+                connect.setEnabled(false);
+            }
+        }else if(e.getActionCommand().equals("exit")){
             System.exit(0);  
         }  
     }
