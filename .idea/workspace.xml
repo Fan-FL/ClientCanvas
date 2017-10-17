@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ClientCanvas:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="6bd664ae-23d8-41d2-8c7f-fa1cea0999ec" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/UI/LoginWindow.java" afterPath="$PROJECT_DIR$/src/client/UI/LoginWindow.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/ClientCanvas_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -810,12 +815,12 @@
       <workItem from="1508120911557" duration="1127000" />
       <workItem from="1508140460514" duration="15900000" />
       <workItem from="1508208127875" duration="2936000" />
-      <workItem from="1508221926745" duration="961000" />
+      <workItem from="1508221926745" duration="1031000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49710000" />
+    <option name="totallyTimeSpent" value="49780000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1341,10 +1346,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>ClientCanvas:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.50229883" />
+                <option value="0.289012" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
