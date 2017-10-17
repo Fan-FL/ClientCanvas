@@ -88,6 +88,7 @@ public class LoginWindow implements ActionListener{
     public void actionPerformed(ActionEvent e) {  
         if(e.getActionCommand().equals("connect")){
             // test
+        	connect.setText("Connecting...");
             ipAddress.setText("localhost");
             portNumberTextField.setText("4444");
 
