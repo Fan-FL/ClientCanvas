@@ -181,7 +181,7 @@ public class TCPClient{
             case "check":
                 String content = data.get("content").toString();
                 if(content.equals("approve")){
-                    this.controller.showWhiteBoardWindow(this.username);
+                    this.controller.showWhiteBoardWindow();
                     String approveACKData = "{\"cmd\":\"approveACK\"}";
                     sendData(approveACKData);
                     this.approvedByServer = true;
@@ -192,6 +192,7 @@ public class TCPClient{
             case "username":
                 if(this.approvedByServer){
                     this.username = data.get("content").toString();
+					this.controller.getMyUsername(username);
                     this.controller.getWhiteBoardWindow().getUserTable().setMyUsername(this.username);
                 }
 				break;

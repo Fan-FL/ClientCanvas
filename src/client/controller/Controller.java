@@ -43,11 +43,10 @@ public class Controller {
         this.tcpClient.connect();
     }
 
-    public void showWhiteBoardWindow(String username) {
+    public void showWhiteBoardWindow() {
         // close waiting window
         this.whiteBoardWindow = new WhiteBoardClientWindow("Mini-Canvas Client", this);
         this.loginWindow.finish();
-        this.whiteBoardWindow.getUserTable().setMyUsername(username);
     }
 
     public void sendToServerData(String msg) {
@@ -101,5 +100,10 @@ public class Controller {
             JOptionPane.showMessageDialog(null, "Disconnected or cannot connect to the server", "alert", JOptionPane.WARNING_MESSAGE);
         }
         System.exit(0);
+    }
+
+    public void getMyUsername(String username) {
+        this.whiteBoardWindow.getUserTable().setMyUsername(username);
+        this.whiteBoardWindow.getMyUsernameLabel().setText("You are " + username);
     }
 }

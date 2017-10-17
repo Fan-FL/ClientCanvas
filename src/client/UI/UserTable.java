@@ -1,7 +1,6 @@
 package client.UI;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import java.awt.*;
@@ -12,6 +11,7 @@ public class UserTable extends JPanel{
     private DefaultTableModel tableModel;
     private JTable table;
     private WhiteBoardClientWindow whiteboard = null;
+
 
     private String myUsername = "";
     
@@ -36,8 +36,7 @@ public class UserTable extends JPanel{
                 return false;
             }
         };
-//        table.setBackground(new Color(245,245,245));
-//       table
+
         JScrollPane scrollPane = new JScrollPane(table);
         add(scrollPane,BorderLayout.CENTER);
         table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

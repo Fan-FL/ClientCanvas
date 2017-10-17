@@ -57,6 +57,16 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
 	private JButton clear, send;
 	private JScrollPane recviveScroll, sendScroll;
 
+    private JLabel myUsernameLabel;
+
+    public JLabel getMyUsernameLabel() {
+        return myUsernameLabel;
+    }
+
+    public void setMyUsernameLabel(JLabel myUsernameLabel) {
+        this.myUsernameLabel = myUsernameLabel;
+    }
+
     String[] fontName;
     // Define the name of the icons in the button panel
     private String names[] = {"pen","line", "rect", "frect", "oval", "foval", "circle", "fcircle",
@@ -203,6 +213,11 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
         startbar = new JLabel("White Board");
 
         userTable = new UserTable(this);
+        JPanel userInfoPanel = new JPanel();
+        userInfoPanel.setLayout(new BorderLayout());
+        myUsernameLabel = new JLabel();
+        userInfoPanel.add(myUsernameLabel, BorderLayout.NORTH);
+        userInfoPanel.add(userTable, BorderLayout.CENTER);
 
 		chat = new JPanel();
 		chat.setLayout(new BorderLayout(0, 10));
@@ -220,7 +235,7 @@ public class WhiteBoardClientWindow extends JFrame implements ActionListener {
         con.add(buttonpanel, BorderLayout.NORTH);
         con.add(drawarea, BorderLayout.CENTER);
         con.add(startbar, BorderLayout.SOUTH);
-        con.add(userTable, BorderLayout.WEST);
+        con.add(userInfoPanel, BorderLayout.WEST);
         con.add(chat, BorderLayout.EAST);
 
 
